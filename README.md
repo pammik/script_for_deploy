@@ -1,2 +1,4 @@
-# script_for_deploy
-Test task for deploy
+Для запуска использовался: python3.6+
+Для работы необходима установка paramiko.
+Версия git на клиентах: 1.8+
+Версия svn на клиентах: 1.9+
