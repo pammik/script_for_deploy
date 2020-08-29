@@ -69,5 +69,7 @@ for line in read_file:
                 act_user.update({"revision": stdout[0].rstrip()})
                 con_serv.close()
             all_user.update({act_user["user"]: act_user})
+        except (EOFError, paramiko.AuthenticationException, socket.error):
+            print("Host " + act_user["hostname"] + " недоступен")
 output_to_json = open("json_out", mode='w', encoding='utf-8')
 json.dump(all_user, output_to_json)
