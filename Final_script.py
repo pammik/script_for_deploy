@@ -4,7 +4,7 @@ import base64
 import getpass
 import os.path
 
-file_with_cred = "hosts"
+file_with_cred = "Hosts"
 read_file = open(file_with_cred, mode='r')
 act_user = {}
 all_user = {}
