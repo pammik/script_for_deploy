@@ -104,7 +104,7 @@ for line in read_file:
                     con_serv.close()
                 all_user.update({act_user["user"]: act_user})
             except paramiko.ssh_exception.AuthenticationException:
-                print("Server " + act_user["hostname"] + " поключу xz")
+                print("Для " + act_user["hostname"] + " некорректные данные")
             except socket.error:
                 print("Server " + act_user["hostname"] + " недоступен")
 output_to_json = open("json_out", mode='w', encoding='utf-8')
