@@ -82,7 +82,7 @@ for line in read_file:
                 except paramiko.ssh_exception.AuthenticationException:
                     print("For " + act_user["hostname"] + " incorrect data")
             except socket.error:
-                print("Host " + act_user["hostname"] + " not response")
+                print("Host " + act_user["hostname"] + " not available")
         else:
             try:
                 act_user.update({"auth_type": "password"})
