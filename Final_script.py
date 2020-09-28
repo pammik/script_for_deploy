@@ -77,12 +77,12 @@ for line in read_file:
                             act_user.update({"revision": stdout[0].rstrip()})
                             con_serv.close()
                         else:
-                            print("у Сервера " + act_user["hostname"] + " нет ни git, ни svn")
+                            print("Host " + act_user["hostname"] + " dont have git and svn")
                     all_user.update({act_user["user"]: act_user})
                 except paramiko.ssh_exception.AuthenticationException:
-                    print("Для " + act_user["hostname"] + " некорректные данные")
+                    print("For " + act_user["hostname"] + " incorrect data")
             except socket.error:
-                print("Хост " + act_user["hostname"] + " недоступен")
+                print("Host " + act_user["hostname"] + " not response")
         else:
             try:
                 act_user.update({"auth_type": "password"})
@@ -113,11 +113,11 @@ for line in read_file:
                         act_user.update({"revision": stdout[0].rstrip()})
                         con_serv.close()
                     else:
-                        print("у Сервера " + act_user["hostname"] + " нет ни git, ни svn")
+                        print("Host " + act_user["hostname"] + " haven`t git and svn")
                 all_user.update({act_user["user"]: act_user})
             except paramiko.ssh_exception.AuthenticationException:
-                print("Для " + act_user["hostname"] + " некорректные данные")
+                print("For " + act_user["hostname"] + " incorrect credentials")
             except socket.error:
-                print("Server " + act_user["hostname"] + " недоступен")
+                print("Server " + act_user["hostname"] + " not available")
 output_to_json = open("json_out", mode='w', encoding='utf-8')
 json.dump(all_user, output_to_json)
